@@ -1,0 +1,18 @@
+.mainNav {
+  background-color: #222227;
+}
+.nav-link {
+  color: white;
+}
+
+.navbar-brand {
+  text-decoration: none;
+  color: #9e8a78;
+}
+.navbar-brand :hover {
+  color: #ffffff;
+}
+.nav-link:hover {
+  background-color: #9e8a78;
+  color: #222227;
+}

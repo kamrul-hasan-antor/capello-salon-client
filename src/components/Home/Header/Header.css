@@ -1,0 +1,13 @@
+.main-container {
+  height: 620px;
+}
+.title {
+  color: #ffffff;
+}
+.images {
+  height: 600px;
+  width: 100%;
+}
+.caption {
+  height: 500px;
+}

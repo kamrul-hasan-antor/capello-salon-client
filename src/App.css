@@ -6,3 +6,36 @@
 .font-style {
   font-family: "Prata", serif;
 }
+.text-smaller {
+  color: #999999;
+}
+.heading-text {
+  font-size: 36px;
+  color: #303133;
+}
+.sub-heading {
+  font-size: 17px;
+  color: #9e8a78;
+}
+.text-small {
+  font-size: 17px;
+  color: #6e6c6c;
+}
+.button {
+  text-transform: uppercase;
+  font-size: 16px;
+  color: #ffffff;
+  padding: 12px;
+  background-color: #9e8a78;
+  display: inline-block;
+  border: none;
+  margin: 5px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-weight: 200;
+  text-align: center;
+  font-family: "Work-sans", sans-serif;
+}
+.button:hover {
+  background-color: #222227;
+}
