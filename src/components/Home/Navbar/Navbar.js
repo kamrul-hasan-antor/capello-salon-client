@@ -60,7 +60,7 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <Link className="mr-auto nav-link" to="/admin">
+                <Link className="mr-auto nav-link" to="/admin/services">
                   Admin
                 </Link>
               </li>

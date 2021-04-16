@@ -1,0 +1,12 @@
+.mainForm {
+  padding: 20px;
+  background-color: #fcf9f5;
+  height: 360px;
+}
+.message {
+  height: 160px;
+}
+.submitBtn {
+  position: relative;
+  left: 100%;
+}

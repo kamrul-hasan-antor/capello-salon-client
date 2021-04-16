@@ -1,0 +1,14 @@
+.sidebar {
+  background-color: #222227;
+  height: 100vh;
+}
+.links {
+  font-size: 16px;
+  text-decoration: none;
+}
+.links:hover {
+  color: #ffffff;
+}
+.lists {
+  padding-bottom: 20px;
+}

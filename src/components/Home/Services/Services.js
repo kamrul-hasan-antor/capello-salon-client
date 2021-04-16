@@ -1,13 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import AllServices from "../AllServices/AllServices";
 import "./Services.css";
+
 const Services = () => {
+  const [service, setService] = useState([]);
+
+  useEffect(() => {
+    const url = "http://localhost:5000/services";
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setService(data));
+  }, []);
+
   return (
-    <main className="main-section">
+    <div className="main-section">
       <h5 className="font-style sub-heading text-center pt-4">
         Trend Salon & Spa
       </h5>
       <h2 className="font-style heading-text text-center">Our Services</h2>
-    </main>
+
+      {service.map((data) => (
+        <AllServices data={data}></AllServices>
+      ))}
+    </div>
   );
 };
 

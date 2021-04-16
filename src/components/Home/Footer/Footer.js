@@ -46,6 +46,9 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <div className="text-center font-style text-white pt-5">
+        <p>Copyright {(new Date()).getFullYear()} All Rights Reserved</p>
+      </div>
     </section>
   );
 };
