@@ -7,7 +7,7 @@ import { Carousel } from "react-bootstrap";
 const Header = () => {
   return (
     <Carousel>
-      <Carousel.Item>
+      <Carousel.Item className="carousel-item">
         <img className="d-block images" src={imgOne} alt="First slide" />
         <Carousel.Caption className="caption text-left">
           <div className="row font-style">

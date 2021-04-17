@@ -1,13 +1,22 @@
-.main-container {
-  height: 620px;
-}
-.title {
-  color: #ffffff;
-}
 .images {
   height: 600px;
+  min-height: 420px;
   width: 100%;
 }
 .caption {
-  height: 500px;
+  height: 530px;
+}
+.caption h1 {
+  font-size: 50px;
+}
+.carousel-item::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #222227;
+  opacity: 0.5;
 }
