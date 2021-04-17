@@ -55,7 +55,7 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <Link className="mr-auto nav-link" to="/">
+                <Link className="mr-auto nav-link" to="/signIn">
                   Login
                 </Link>
               </li>

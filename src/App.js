@@ -7,29 +7,43 @@ import AddServices from "./components/Admin/AddServices/AddServices";
 import MakeAdmin from "./components/Admin/MakeAdmin/MakeAdmin";
 import ManageServices from "./components/Admin/ManageServices/ManageServices";
 import Navbar from "./components/Home/Navbar/Navbar";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import SignIn from "./components/SignIn/SignIn";
+import Book from "./components/User/Book/Book";
+import { createContext, useState } from "react";
 
+export const UserContext = createContext();
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState({});
   return (
-    <Router>
-      <Navbar />
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/admin/services">
-          <Admin></Admin>
-        </Route>
-        <Route path="/admin/addServices">
-          <AddServices></AddServices>
-        </Route>
-        <Route path="/admin/makeAdmin">
-          <MakeAdmin></MakeAdmin>
-        </Route>
-        <Route path="/admin/manageServices">
-          <ManageServices></ManageServices>
-        </Route>
-      </Switch>
-    </Router>
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/signIn">
+            <SignIn></SignIn>
+          </Route>
+          <Route path="/book/:_id">
+            <Book></Book>
+          </Route>
+          <PrivateRoute path="/admin/services">
+            <Admin></Admin>
+          </PrivateRoute>
+          <Route path="/admin/addServices">
+            <AddServices></AddServices>
+          </Route>
+          <Route path="/admin/makeAdmin">
+            <MakeAdmin></MakeAdmin>
+          </Route>
+          <Route path="/admin/manageServices">
+            <ManageServices></ManageServices>
+          </Route>
+        </Switch>
+      </Router>
+    </UserContext.Provider>
   );
 }
 
