@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import {
   useStripe,
   useElements,
@@ -36,6 +36,7 @@ const SplitCardForm = (props) => {
   const stripe = useStripe();
   const elements = useElements();
   const options = useOptions();
+  const [err, setErr] = useState(null);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -43,83 +44,91 @@ const SplitCardForm = (props) => {
     if (!stripe || !elements) {
       return;
     }
-
-    const payload = await stripe.createPaymentMethod({
+    const cardElement = elements.getElement(CardNumberElement);
+    const { error, payload } = await stripe.createPaymentMethod({
       type: "card",
-      card: elements.getElement(CardNumberElement),
+      card: cardElement,
     });
-    console.log("[PaymentMethod]", payload);
+
+    if (error) {
+      setErr(error.message);
+    } else {
+      console.log("[PaymentMethod]", payload);
+    }
   };
 
   return (
-    <form className="font-style" onSubmit={handleSubmit}>
-      <label style={{ width: "400px" }} className="bg-white p-2">
-        Card number
-        <CardNumberElement
-          options={options}
-          onReady={() => {
-            console.log("CardNumberElement [ready]");
-          }}
-          onChange={(event) => {
-            console.log("CardNumberElement [change]", event);
-          }}
-          onBlur={() => {
-            console.log("CardNumberElement [blur]");
-          }}
-          onFocus={() => {
-            console.log("CardNumberElement [focus]");
-          }}
-        />
-      </label>
-      <br />
-      <label style={{ width: "400px" }} className="bg-white mt-3 p-2">
-        Expiration date
-        <CardExpiryElement
-          options={options}
-          onReady={() => {
-            console.log("CardNumberElement [ready]");
-          }}
-          onChange={(event) => {
-            console.log("CardNumberElement [change]", event);
-          }}
-          onBlur={() => {
-            console.log("CardNumberElement [blur]");
-          }}
-          onFocus={() => {
-            console.log("CardNumberElement [focus]");
-          }}
-        />
-      </label>
-      <br />
-      <label style={{ width: "400px" }} className="bg-white mt-3 p-2">
-        CVC
-        <CardCvcElement
-          options={options}
-          onReady={() => {
-            console.log("CardNumberElement [ready]");
-          }}
-          onChange={(event) => {
-            console.log("CardNumberElement [change]", event);
-          }}
-          onBlur={() => {
-            console.log("CardNumberElement [blur]");
-          }}
-          onFocus={() => {
-            console.log("CardNumberElement [focus]");
-          }}
-        />
-      </label>
-      <br />
-      <button
-        style={{ width: "100px" }}
-        onClick={handlePayment}
-        className="button"
-        type="submit"
-        disabled={!stripe}
-      >
-        Pay
-      </button>
-    </form>
+    <div>
+      <form className="font-style" onSubmit={handleSubmit}>
+        <label style={{ width: "400px" }} className="bg-white p-2">
+          Card number
+          <CardNumberElement
+            options={options}
+            onReady={() => {
+              console.log("CardNumberElement [ready]");
+            }}
+            onChange={(event) => {
+              console.log("CardNumberElement [change]", event);
+            }}
+            onBlur={() => {
+              console.log("CardNumberElement [blur]");
+            }}
+            onFocus={() => {
+              console.log("CardNumberElement [focus]");
+            }}
+          />
+        </label>
+        <br />
+        <label style={{ width: "400px" }} className="bg-white mt-3 p-2">
+          Expiration date
+          <CardExpiryElement
+            options={options}
+            onReady={() => {
+              console.log("CardNumberElement [ready]");
+            }}
+            onChange={(event) => {
+              console.log("CardNumberElement [change]", event);
+            }}
+            onBlur={() => {
+              console.log("CardNumberElement [blur]");
+            }}
+            onFocus={() => {
+              console.log("CardNumberElement [focus]");
+            }}
+          />
+        </label>
+        <br />
+        <label style={{ width: "400px" }} className="bg-white mt-3 p-2">
+          CVC
+          <CardCvcElement
+            options={options}
+            onReady={() => {
+              console.log("CardNumberElement [ready]");
+            }}
+            onChange={(event) => {
+              console.log("CardNumberElement [change]", event);
+            }}
+            onBlur={() => {
+              console.log("CardNumberElement [blur]");
+            }}
+            onFocus={() => {
+              console.log("CardNumberElement [focus]");
+            }}
+          />
+        </label>
+        <br />
+        <button
+          style={{ width: "100px" }}
+          onClick={handlePayment}
+          className="button"
+          type="submit"
+          disabled={!stripe}
+        >
+          Pay
+        </button>
+      </form>
+      {err && <p>{err.message}</p>}
+    </div>
   );
 };
 

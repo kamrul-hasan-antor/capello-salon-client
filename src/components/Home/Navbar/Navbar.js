@@ -1,8 +1,24 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { UserContext } from "../../../App";
 import "./Navbar.css";
 
 const Navbar = () => {
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  const [isAdmin, setIsAdmin] = useState(false);
+  console.log(loggedInUser);
+
+  useEffect(() => {
+    const url = "http://localhost:5000/isAdmin";
+    fetch(url, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ email: loggedInUser.email }),
+    })
+      .then((res) => res.json())
+      .then((data) => setIsAdmin(data));
+  }, []);
+
   return (
     <div>
       <nav class="navbar navbar-expand-lg mainNav ">
@@ -59,11 +75,15 @@ const Navbar = () => {
                   Login
                 </Link>
               </li>
-              <li>
-                <Link className="mr-auto nav-link" to="/admin/orderList">
-                  Admin
-                </Link>
-              </li>
+              {isAdmin && (
+                <div>
+                  <li>
+                    <Link className="mr-auto nav-link" to="/admin/orderList">
+                      Admin
+                    </Link>
+                  </li>
+                </div>
+              )}
             </ul>
           </div>
         </div>
