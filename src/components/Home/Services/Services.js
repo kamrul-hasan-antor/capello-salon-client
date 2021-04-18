@@ -6,7 +6,7 @@ const Services = () => {
   const [service, setService] = useState([]);
 
   useEffect(() => {
-    const url = "http://localhost:5000/services";
+    const url = "https://warm-spire-93290.herokuapp.com/services";
     fetch(url)
       .then((res) => res.json())
       .then((data) => setService(data));

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    const url = "http://localhost:5000/review";
+    const url = "https://warm-spire-93290.herokuapp.com/review";
     fetch(url)
       .then((res) => res.json())
       .then((data) => setReviews(data));

@@ -27,7 +27,6 @@ const Header = () => {
       </Carousel.Item>
       <Carousel.Item>
         <img className="d-block images" src={imgTwo} alt="Second slide" />
-
         <Carousel.Caption className="caption text-left">
           <div className="row font-style">
             <div className="col-12 col-md-8 mt-md-5">

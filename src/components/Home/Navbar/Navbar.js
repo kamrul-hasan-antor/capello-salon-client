@@ -9,7 +9,7 @@ const Navbar = () => {
   console.log(loggedInUser);
 
   useEffect(() => {
-    const url = "http://localhost:5000/isAdmin";
+    const url = "https://warm-spire-93290.herokuapp.com/isAdmin";
     fetch(url, {
       method: "POST",
       headers: { "content-type": "application/json" },

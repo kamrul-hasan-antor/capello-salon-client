@@ -13,7 +13,7 @@ const BookList = () => {
   };
 
   useEffect(() => {
-    const url = "http://localhost:5000/booking";
+    const url = "https://warm-spire-93290.herokuapp.com/booking";
     fetch(url)
       .then((res) => res.json())
       .then((data) => filterBooking(data));

@@ -4,13 +4,13 @@ const ManageServices = () => {
   const [services, setServices] = useState([]);
 
   useEffect(() => {
-    const url = "http://localhost:5000/services";
+    const url = "https://warm-spire-93290.herokuapp.com/services";
     fetch(url)
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);
   const handleClick = (id) => {
-    const url = `http://localhost:5000/delete/${id}`;
+    const url = `https://warm-spire-93290.herokuapp.com/delete/${id}`;
     fetch(url, {
       method: "DELETE",
     })

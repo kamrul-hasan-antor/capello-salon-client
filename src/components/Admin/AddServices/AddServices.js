@@ -13,7 +13,7 @@ const AddServices = () => {
       price: data.price,
       description: data.description,
     };
-    const url = "http://localhost:5000/addServices";
+    const url = "https://warm-spire-93290.herokuapp.com/addServices";
     fetch(url, {
       method: "POST",
       headers: { "content-type": "application/json" },

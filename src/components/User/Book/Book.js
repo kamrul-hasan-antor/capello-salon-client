@@ -12,7 +12,7 @@ const Book = () => {
   const [booking, setBooking] = useState({});
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   useEffect(() => {
-    const url = `http://localhost:5000/book/${_id}`;
+    const url = `https://warm-spire-93290.herokuapp.com/book/${_id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setBooking(data));
@@ -31,7 +31,7 @@ const Book = () => {
       ...loggedInUser,
       orderTime: new Date(),
     };
-    const uri = `http://localhost:5000/addBooking`;
+    const uri = `https://warm-spire-93290.herokuapp.com/addBooking`;
     fetch(uri, {
       method: "POST",
       headers: {
@@ -41,11 +41,11 @@ const Book = () => {
     }).then((res) => console.log("hello", res));
   };
   return (
-    <div className="row">
+    <div className="row  main-book">
       <div className="col-md-2">
         <SidBar></SidBar>
       </div>
-      <div className="col-md-10 main-book p-5">
+      <div className="col-md-10 p-5">
         <h5 className="font-style p-3 bg-light w-25">{title}</h5>
         <p className="font-style pt-2">Your service charge will be ${price}</p>
 

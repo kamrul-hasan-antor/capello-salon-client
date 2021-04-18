@@ -13,7 +13,7 @@ const AddReview = () => {
       company: data.company,
       ...loggedInUser,
     };
-    const url = "http://localhost:5000/addReview";
+    const url = "https://warm-spire-93290.herokuapp.com/addReview";
     fetch(url, {
       method: "POST",
       headers: { "content-type": "application/json" },

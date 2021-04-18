@@ -1,8 +1,8 @@
-#anim {
+#animation {
   transition: 1s;
 }
 
-#anim:hover {
+#animation:hover {
   transform: scale(1.1);
   z-index: 1;
 }

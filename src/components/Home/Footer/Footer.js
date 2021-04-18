@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="container">
         <div className="row pt-5">
           <div className="col-md-3">
-            <h6 className="font-style text-white text-center">Social Media</h6>
+            <h6 className="font-style text-white text-center">Quotes</h6>
             <p className="text-smaller pt-3">
               Our barbershop is the created for men who appreciate premium
               quality, time and flawless look.
@@ -47,7 +47,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="text-center font-style text-white pt-5">
-        <p>Copyright {(new Date()).getFullYear()} All Rights Reserved</p>
+        <p>Copyright {new Date().getFullYear()} All Rights Reserved</p>
       </div>
     </section>
   );
