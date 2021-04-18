@@ -8,7 +8,7 @@ const AddServices = () => {
   const [imageURL, setImageURL] = useState(null);
   const onSubmit = (data) => {
     const serviceData = {
-      name: data.name,
+      title: data.title,
       imageURL: imageURL,
       price: data.price,
       description: data.description,
@@ -49,7 +49,7 @@ const AddServices = () => {
                   className="form-control mt-3"
                   name="title"
                   placeholder="Title"
-                  {...register("name")}
+                  {...register("title", { required: true })}
                 />
               </div>
               <div className="col-md-5">

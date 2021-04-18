@@ -12,7 +12,7 @@ const About = () => {
           <h6 className="font-style sub-heading">Introducing</h6>
           <h1 className="font-style heading-text">
             The Barber Shop <br />
-            Science 1991
+            Since 2021
           </h1>
           <img className="img-fluid w-75" src={beard} alt="" />
           <p className="font-style text-small">

@@ -6,8 +6,8 @@ const Sidebar = () => {
     <div className="sidebar d-flex flex-colum justify-content-center pt-5 font-style">
       <ul>
         <li className="lists">
-          <Link className="links sub-heading" to="/admin/services">
-            Services List
+          <Link className="links sub-heading" to="/admin/orderList">
+            Ordered List
           </Link>
         </li>
         <li className="lists">

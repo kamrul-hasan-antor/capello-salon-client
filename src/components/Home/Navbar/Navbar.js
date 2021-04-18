@@ -45,13 +45,13 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <Link className="mr-auto nav-link" to="/">
-                  Testimonials
+                <Link className="mr-auto nav-link" to="/review">
+                  Reviews
                 </Link>
               </li>
               <li>
                 <Link className="mr-auto nav-link" to="/">
-                  Appointment
+                  Portfolio
                 </Link>
               </li>
               <li>
@@ -60,7 +60,7 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <Link className="mr-auto nav-link" to="/admin/services">
+                <Link className="mr-auto nav-link" to="/admin/orderList">
                   Admin
                 </Link>
               </li>

@@ -19,11 +19,12 @@ export const googleSignIn = () => {
       const { displayName, email, photoURL } = res.user;
       const signedInUser = {
         isSignIn: true,
-        displayName,
-        email,
+        name: displayName,
+        email: email,
         imgSrc: photoURL,
         success: true,
       };
+      // setUserToken();
       return signedInUser;
     })
     .catch((err) => {
@@ -32,3 +33,12 @@ export const googleSignIn = () => {
       console.log(errorCode, errorMessage);
     });
 };
+// const setUserToken = () => {
+//   firebase
+//     .auth()
+//     .currentUser.getIdToken(/* forceRefresh */ true)
+//     .then(function (idToken) {
+//       sessionStorage.setItem("token", idToken);
+//     })
+//     .catch(function (error) {});
+// };

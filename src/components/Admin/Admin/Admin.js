@@ -1,5 +1,6 @@
 import React from "react";
-import ServiceList from "../ServiceList/ServiceList";
+import OrderList from "../OrderList/OrderList";
+
 import Sidebar from "../Sidebar/Sidebar";
 const Admin = () => {
   return (
@@ -9,7 +10,7 @@ const Admin = () => {
           <Sidebar></Sidebar>
         </div>
         <div className="col-md-10">
-          <ServiceList></ServiceList>
+          <OrderList></OrderList>
         </div>
       </div>
     </section>

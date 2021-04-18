@@ -11,6 +11,8 @@ import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import SignIn from "./components/SignIn/SignIn";
 import Book from "./components/User/Book/Book";
 import { createContext, useState } from "react";
+import BookList from "./components/User/BookList/BookList";
+import AddReview from "./components/User/AddReview/AddReview";
 
 export const UserContext = createContext();
 function App() {
@@ -26,12 +28,18 @@ function App() {
           <Route path="/signIn">
             <SignIn></SignIn>
           </Route>
-          <Route path="/book/:_id">
+          <PrivateRoute path="/book/:_id">
             <Book></Book>
-          </Route>
-          <PrivateRoute path="/admin/services">
-            <Admin></Admin>
           </PrivateRoute>
+          <Route path="/bookList">
+            <BookList></BookList>
+          </Route>
+          <Route path="/review">
+            <AddReview></AddReview>
+          </Route>
+          <Route path="/admin/orderList">
+            <Admin></Admin>
+          </Route>
           <Route path="/admin/addServices">
             <AddServices></AddServices>
           </Route>
